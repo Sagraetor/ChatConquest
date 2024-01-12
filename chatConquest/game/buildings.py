@@ -1,9 +1,6 @@
 import pygame
 
-import animated_sprite
-import constant
-import team as tm
-import text_handler
+from chatConquest.common import team as tm, animated_sprite, constant, text_handler
 
 
 class _FlaggedBuilding(animated_sprite.TeamColorSprite):
@@ -53,7 +50,7 @@ class _Towers(pygame.sprite.Group):
     class _Tower(_FlaggedBuilding):
         def __init__(self, id_, position, team: tm.Team):
             _FlaggedBuilding.__init__(self, constant.TOWER, 16, 32, 1000,
-                                      id_, position, team,)
+                                      id_, position, team, )
 
     def __init__(self):
         pygame.sprite.Group.__init__(self)

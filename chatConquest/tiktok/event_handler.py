@@ -1,7 +1,8 @@
-import team
+from chatConquest.common import team
 
 from TikTokLive.types.events import CommentEvent, ConnectEvent
-from player import players
+
+from chatConquest.tiktok.player import players
 
 
 async def on_connect(_: ConnectEvent):

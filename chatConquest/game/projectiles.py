@@ -1,9 +1,9 @@
 import pygame
-import constant
+from chatConquest.common import constant
 import math
 import random
 
-from game_space import game_elements
+from chatConquest.game.game_space import game_elements
 
 
 class _Projectile(pygame.sprite.Sprite):

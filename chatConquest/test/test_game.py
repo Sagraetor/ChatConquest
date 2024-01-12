@@ -1,12 +1,9 @@
 import pygame
 
-import character
-import constant
-import team
-import text_handler
-import projectiles
+from chatConquest.game import character
+from chatConquest.common import team, constant, text_handler
 
-from game_space import game_elements
+from chatConquest.game.game_space import game_elements
 
 screen = game_elements.init()
 

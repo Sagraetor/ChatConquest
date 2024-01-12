@@ -1,16 +1,10 @@
 import pygame
 import asyncio
 
-import character
-import constant
-import team
-import text_handler
-import projectiles
+from chatConquest.game import character
+from chatConquest.common import team, constant, text_handler
 
-
-from TikTokLive import TikTokLiveClient
-from event_handler import on_comment, on_connect
-from game_space import game_elements
+from chatConquest.game.game_space import game_elements
 
 background = pygame.image.load(constant.BACKGROUND).convert()
 background = pygame.transform.scale_by(background, 2)
@@ -58,15 +52,4 @@ class Display:
             pygame.display.flip()
             await asyncio.sleep(0.001)
 
-
-if __name__ == '__main__':
-    with asyncio.Runner() as runner:
-        loop = runner.get_loop()
-        #client: TikTokLiveClient = TikTokLiveClient(unique_id=constant.TIK_TOK_ID, loop=loop)
-        #client.add_listener('comment', on_comment)
-        #client.add_listener('connect', on_connect)
-        display = Display()
-        #loop.create_task(client.start())
-        #loop.run_until_complete(display.start())
-        loop.create_task(display.start())
-        loop.run_forever()
+display = Display()

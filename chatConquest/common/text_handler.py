@@ -1,5 +1,5 @@
 import pygame
-import constant
+from chatConquest.common import constant
 
 pygame.font.init()
 

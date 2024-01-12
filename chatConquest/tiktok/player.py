@@ -1,4 +1,4 @@
-from character import create_character
+from chatConquest.game.character import create_character
 
 
 class _Players:

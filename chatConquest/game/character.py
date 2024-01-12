@@ -1,12 +1,10 @@
 import math
 import pygame
 
-import constant
-import team
-import animated_sprite
+from chatConquest.common import team, animated_sprite, constant
 
-from projectiles import launch_mage_projectile
-from game_space import game_elements
+from chatConquest.game.projectiles import launch_mage_projectile
+from chatConquest.game.game_space import game_elements
 
 
 class Character(animated_sprite.TeamColorSprite):

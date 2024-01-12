@@ -1,5 +1,5 @@
 import pygame
-import constant
+from chatConquest.common import constant
 
 
 class _GameElements(pygame.sprite.Group):
@@ -16,8 +16,8 @@ class _GameElements(pygame.sprite.Group):
         self.screen = pygame.display.set_mode(constant.SCREEN_RATIO)
 
     def init(self):
-        from buildings import towers
-        from buildings import castles
+        from chatConquest.game.buildings import towers
+        from chatConquest.game.buildings import castles
         self.towers = towers
         self.castles = castles
         return self.screen
