@@ -1,4 +1,5 @@
 import pygame
+import pygame_textinput
 from chatConquest.common import constant
 
 pygame.font.init()
@@ -19,6 +20,7 @@ def add_outline(image: pygame.Surface, thickness: int, color: tuple, color_key: 
     new_img.blit(image, (thickness, thickness))
 
     return new_img
+
 
 
 def label_from_id(sprite, font_size = 16):
@@ -45,8 +47,45 @@ def label_from_id(sprite, font_size = 16):
     image.set_colorkey((0, 0, 0))
     return image, pos
 
+def draw_menu():
+    font = pygame.font.Font(constant.FONT, 16)
+    lines = ["Type room ID or steamer username:",
+             "-----------------------------------------------------------",
+             "",
+             "-----------------------------------------------------------",
+             "How to play:",
+             "1. Type (1 - 3) to choose team and spawn in ",
+             'that castle',
+             "",
+             "2. Type (a/b/c) to change class",
+             "      a - knight",
+             "      b - mage",
+             "      c - archer",
+             "",
+             "3. Type any number to travel to that building",
+             "",
+             "4. Travelling to a captured building will make",
+             "you rest in that building",
+             "",
+             "5. Travelling to an uncaptured building will make",
+             "you capture the building",
+             "",
+             "6. Soldiers from different factions will fight",
+             "automatically",
+             "",
+             "7. If you are killed, you will respawn in the",
+             "last captured building you entered",
+             ]
+    image = pygame.Surface((440, 680)).convert_alpha()
 
-def how_to_play():
+    for i in range(len(lines)):
+        line = font.render(lines[i], False, (180, 180, 180))
+        image.blit(line, (15, 15 + 20 * i))
+
+    image.set_colorkey((0, 0, 0))
+    return image
+
+def draw_how_to():
     font = pygame.font.Font(constant.FONT, 16)
     lines = ["1. Type (1 - 3) to choose",
              'team and spawn in that',
@@ -85,3 +124,6 @@ def draw_battle_log():
 
     image.set_colorkey((0, 0, 0))
     return image
+
+
+id_input = pygame_textinput.TextInputVisualizer(font_object=pygame.font.Font(constant.FONT, 16), font_color=(200,200,200), cursor_color=((180, 180, 180)))

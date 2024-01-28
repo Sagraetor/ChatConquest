@@ -2,6 +2,10 @@ import pygame
 from chatConquest.common import constant
 
 
+class _GameData:
+    def __init__(self):
+        self.connected = False
+
 class _GameElements(pygame.sprite.Group):
     towers = None
     castles = None
@@ -66,3 +70,4 @@ class _GameElements(pygame.sprite.Group):
 
 
 game_elements = _GameElements()
+game_data = _GameData()

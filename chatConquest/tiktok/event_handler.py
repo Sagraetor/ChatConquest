@@ -1,18 +1,21 @@
+from TikTokLive.types.events import CommentEvent, ConnectEvent, DisconnectEvent
 from chatConquest.common import team
-
-from TikTokLive.types.events import CommentEvent, ConnectEvent
-
+from chatConquest.game.game_space import game_data
 from chatConquest.tiktok.player import players
 
 
 async def on_connect(_: ConnectEvent):
-    pass
+    game_data.connected = True
+
+
+async def on_disconnect(event: DisconnectEvent):
+    game_data.connected = False
 
 
 async def on_comment(event: CommentEvent):
     player = None
     while player is None:
-        player = players(event.user.nickname)
+        player = players(event.user.nickname, await event.user.avatar.download())
 
     if player.team is None:
         acceptable_answers = ['1', '2', '3']
