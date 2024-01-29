@@ -2,7 +2,6 @@ import asyncio
 
 from TikTokLive import TikTokLiveClient
 
-from common.constant import TIK_TOK_ID as ID
 from tiktok.event_handler import on_comment, on_connect, on_disconnect
 from game.display import display
 

@@ -1,12 +1,17 @@
+import os
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).parent.parent
+
 SCREEN_RATIO = [480, 720]
-BACKGROUND = 'Assets/Map.png'
-TOWER = 'Assets/Tower.png'
-CASTLE = 'Assets/Castle.png'
-KNIGHT = 'Assets/Knight.png'
-MAGE = 'Assets/Mage.png'
-FONT = 'Assets/Fonts/PixeloidSans-mLxMm.ttf'
-FONT_BOLD = 'Assets/Fonts/PixeloidSansBold-PKnYd.ttf'
-TIK_TOK_ID = "@lttqzd2002"
+BACKGROUND = os.path.join(ROOT_DIR, 'Assets\\Map.png')
+TOWER = os.path.join(ROOT_DIR, 'Assets\\Tower.png')
+CASTLE = os.path.join(ROOT_DIR, 'Assets\\Castle.png')
+KNIGHT = os.path.join(ROOT_DIR, 'Assets\\Knight.png')
+MAGE = os.path.join(ROOT_DIR, 'Assets\\Mage.png')
+FONT = os.path.join(ROOT_DIR, 'Assets\\Fonts\\PixeloidSans-mLxMm.ttf')
+FONT_BOLD = os.path.join(ROOT_DIR, 'Assets\\Fonts\\PixeloidSansBold-PKnYd.ttf')
+TIK_TOK_ID = os.path.join(ROOT_DIR, "@lttqzd2002")
 SCALE = 2
 
 TOWER_COORDINATES = [(165, 9),

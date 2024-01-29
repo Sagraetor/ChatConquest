@@ -1,5 +1,4 @@
 import pygame
-import pygame_textinput
 
 import asyncio
 
@@ -22,12 +21,16 @@ class Display:
         self.screen = game_elements.init()
         self._running = True
         self.init_tiktok = None
+        self.pygame_event_handlers = []
+
+    def add_pygame_event_handlers(self, event):
+        self.pygame_event_handlers.append(event)
 
     def set_tiktok_initialiser(self, func):
         self.init_tiktok = func
 
     async def start(self):
-        pygame.display.set_caption("Demo")
+        pygame.display.set_caption("Chat Conquest")
 
         self._running = True
         await self.__screen_loop()
@@ -39,15 +42,12 @@ class Display:
     async def __screen_loop(self):
         while self._running:
             events = pygame.event.get()
+            for func in self.pygame_event_handlers:
+                func(events)
             for event in events:
                 if event.type == pygame.QUIT:
                     self.stop()
                     return
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    char = character.create_character(14, team.TEAM3, "mage")
-                    char1 = character.create_character(11, team.TEAM2, "mage")
-                    char.move(11)
-                    char1.move(14)
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RETURN:
                         if not game_data.connected:
